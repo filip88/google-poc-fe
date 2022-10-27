@@ -20,7 +20,7 @@ const MediaCard: React.FC<IMediaCard> = ({ item }) => (
     <CardMedia
       component="img"
       height="180"
-      image={item.url === 'No data' ? 'https://picsum.photos/id/576/2000' : item.url}
+      image={item.url === 'No data' ? 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg' : item.url}
       alt="green iguana" />
     <CardContent>
       <Typography gutterBottom variant="h6" component="div">

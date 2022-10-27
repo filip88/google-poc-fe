@@ -19,7 +19,7 @@ export default function HideOnScroll(props: Props) {
 
   const handleDelete = () => {
     const deleteData = async () => {
-      await fetch(URL.base, {
+      await fetch(URL.delete, {
         method: 'DELETE'
       })
     }

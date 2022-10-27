@@ -10,15 +10,27 @@ import Pagination from '@mui/material/Pagination';
 import { URL } from './utils/constants/url'
 import Container from '@mui/material/Container'
 import HideOnScroll from './Layout/Navbar'
+import axios from 'axios'
 
 function App() {
   const [scraperData, setScraperData] = useState([])
   const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0)
-  const fetchData = async () => {
-    const res = await fetch(URL.base)
-    const jsonRes = await res.json()
 
-    setScraperData(jsonRes)
+  const fetchData = async () => {
+    const res = await axios.get(URL.base, {
+      headers: {
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      proxy: {
+        host: '52.91.141.155',
+        port: 8080
+      }
+    }).then((response) => {
+      console.log('response is : ' + response.data);
+      setScraperData(response.data.results)
+    })
   }
 
   useEffect(() => {
@@ -58,7 +70,7 @@ function App() {
             
             })}
           </Grid>
-          <Pagination count={scraperData.length} shape="rounded" variant="outlined" sx={{ margin: '2rem auto', display: 'flex', justifyContent: 'center' }}/>
+          {/* <Pagination count={scraperData.length} shape="rounded" variant="outlined" sx={{ margin: '2rem auto', display: 'flex', justifyContent: 'center' }}/> */}
           <ScrollTop>
             <Fab size='small' aria-label='scroll back to top'>
               <KeyboardArrowUpIcon />
