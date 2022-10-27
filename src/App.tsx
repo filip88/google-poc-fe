@@ -17,7 +17,7 @@ function App() {
   const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0)
 
   const fetchData = async () => {
-    const res = await axios.get(URL.base, {
+    const res = await axios.get(URL.mockapi, {
       headers: {
         mode: 'cors',
         referrerPolicy: 'strict-origin-when-cross-origin',
@@ -30,7 +30,7 @@ function App() {
       }
     }).then((response) => {
       console.log('response is : ' + response.data);
-      setScraperData(response.data.results)
+      setScraperData(response.data)
     })
   }
 

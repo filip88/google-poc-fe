@@ -35,7 +35,7 @@ export default function HideOnScroll(props: Props) {
           <Typography sx={{ flexGrow: 1 }} variant="h6" component="div">
             Scrapper data
           </Typography>
-          <Button variant="contained" color="error" onClick={handleDelete}>Delete All</Button>
+          {/* <Button variant="contained" color="error" onClick={handleDelete}>Delete All</Button> */}
         </Toolbar>
       </AppBar>
     </Slide>
