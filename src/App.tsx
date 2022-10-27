@@ -19,7 +19,8 @@ function App() {
   const fetchData = async () => {
     const res = await axios.get(URL.base, {
       headers: {
-        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        mode: 'cors',
+        referrerPolicy: 'strict-origin-when-cross-origin',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
